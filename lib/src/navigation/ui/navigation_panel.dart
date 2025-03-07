@@ -15,12 +15,14 @@ class NavigationPanel extends StatefulWidget {
     this.onComponentSelected,
     this.headerPadding,
     this.header,
+    this.author,
   }) : super(key: key);
 
   final List<Category> categories;
   final void Function(ComponentState?)? onComponentSelected;
   final Widget? header;
   final EdgeInsetsGeometry? headerPadding;
+  final String? author;
 
   @override
   _NavigationPanelState createState() => _NavigationPanelState();
@@ -118,7 +120,10 @@ class _NavigationPanelState extends State<NavigationPanel> {
       constraints: const BoxConstraints(minWidth: 50, maxWidth: 250),
       child: Column(
         children: [
-          widget.header ?? const _NavigationHeader(),
+          widget.header ??
+              _NavigationHeader(
+                author: widget.author,
+              ),
           SizedBox(
             height: 50,
             child: Padding(
@@ -194,7 +199,12 @@ class _NavigationPanelState extends State<NavigationPanel> {
 }
 
 class _NavigationHeader extends StatelessWidget {
-  const _NavigationHeader({Key? key}) : super(key: key);
+  final String? author;
+
+  const _NavigationHeader({
+    Key? key,
+    this.author,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -220,7 +230,7 @@ class _NavigationHeader extends StatelessWidget {
             ),
           ),
           Text(
-            'by MOONSDONTBURN',
+            author ?? 'by MOONSDONTBURN',
             style: context.textTheme.bodySmall,
           ),
         ],

@@ -15,6 +15,7 @@ class Storyboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterBook(
       themes: Themes.themes,
+      author: 'by Storybook Example',
       categories: [
         Category(
           categoryName: 'LIBRARY',

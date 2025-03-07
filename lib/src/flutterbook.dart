@@ -45,6 +45,7 @@ class FlutterBook extends StatefulWidget {
   final LocaleListResolutionCallback? localeListResolutionCallback;
   final LocaleResolutionCallback? localeResolutionCallback;
   final Iterable<Locale>? supportedLocales;
+  final String? author;
 
   const FlutterBook({
     Key? key,
@@ -60,6 +61,7 @@ class FlutterBook extends StatefulWidget {
     this.localeListResolutionCallback,
     this.localeResolutionCallback,
     this.supportedLocales,
+    this.author,
   }) : super(key: key);
 
   @override
@@ -115,12 +117,13 @@ class _FlutterBookState extends State<FlutterBook> {
             localeListResolutionCallback: widget.localeListResolutionCallback,
             localeResolutionCallback: widget.localeResolutionCallback,
             supportedLocales:
-            widget.supportedLocales ?? const <Locale>[Locale('en', 'US')],
+                widget.supportedLocales ?? const <Locale>[Locale('en', 'US')],
             builder: (context, child) {
               return StyledScaffold(
                 body: Row(
                   children: [
                     NavigationPanel(
+                      author: widget.author,
                       header: widget.header,
                       headerPadding: widget.headerPadding,
                       categories: context.watch<List<Category>>().toList(),
