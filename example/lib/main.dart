@@ -158,11 +158,14 @@ Button.secondary(
               states: [
                 ComponentState(
                   stateName: 'Screen Example',
-                  builder: (context, c) => Scaffold(
-                      appBar: AppBar(
-                        title: Text('appbar title'),
-                      ),
-                      body: Center(child: Text('Body '))),
+                  builder: (context, c) => Container(
+                    constraints: BoxConstraints(maxWidth: 500, maxHeight: 800),
+                    child: Scaffold(
+                        appBar: AppBar(
+                          title: Text('appbar title'),
+                        ),
+                        body: Center(child: Text('Body '))),
+                  ),
                   markdown: """
 ### Component State Markdown Example
 The `Scaffold` is used for user alternate actions.
