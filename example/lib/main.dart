@@ -18,7 +18,6 @@ class Storyboard extends StatelessWidget {
       categories: [
         Category(
           categoryName: 'LIBRARY',
-
           organizers: [
             Folder(
               folderName: 'Charts',
@@ -153,8 +152,27 @@ Button.secondary(
                 ),
               ],
             ),
+            Component(
+              componentName: 'Screen',
+              states: [
+                ComponentState(
+                  stateName: 'Screen Example',
+                  builder: (context, c) => Scaffold(
+                      appBar: AppBar(
+                        title: Text('appbar title'),
+                      ),
+                      body: Center(child: Text('Body '))),
+                  markdown: """
+### Component State Markdown Example
+The `Scaffold` is used for user alternate actions.
+               """,
+                  codeSample: r'''
+Scaffold(appBar: AppBar(title: Text('appbar title'),),body: Center(child: Text('Body ')))
+''',
+                ),
+              ],
+            ),
           ],
-
         ),
       ],
     );
